@@ -256,6 +256,7 @@ Partial Class Form3
         'pnlhome
         '
         Me.pnlhome.BackColor = System.Drawing.SystemColors.Control
+        Me.pnlhome.Controls.Add(Me.pnlproduct)
         Me.pnlhome.Controls.Add(Me.TextBox4)
         Me.pnlhome.Controls.Add(Me.TextBox3)
         Me.pnlhome.Controls.Add(Me.TextBox2)
@@ -453,7 +454,7 @@ Partial Class Form3
         Me.pnlproduct.Controls.Add(Me.addbtn)
         Me.pnlproduct.Controls.Add(Me.pricebtn)
         Me.pnlproduct.Controls.Add(Me.stockbtn)
-        Me.pnlproduct.Location = New System.Drawing.Point(232, 82)
+        Me.pnlproduct.Location = New System.Drawing.Point(0, 1)
         Me.pnlproduct.Name = "pnlproduct"
         Me.pnlproduct.Size = New System.Drawing.Size(953, 664)
         Me.pnlproduct.TabIndex = 12
@@ -632,7 +633,6 @@ Partial Class Form3
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.ClientSize = New System.Drawing.Size(1182, 753)
-        Me.Controls.Add(Me.pnlproduct)
         Me.Controls.Add(Me.pnlhome)
         Me.Controls.Add(Me.pnltop)
         Me.Controls.Add(Me.pnlleft)
