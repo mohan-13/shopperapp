@@ -256,7 +256,6 @@ Partial Class Form3
         'pnlhome
         '
         Me.pnlhome.BackColor = System.Drawing.SystemColors.Control
-        Me.pnlhome.Controls.Add(Me.pnlproduct)
         Me.pnlhome.Controls.Add(Me.TextBox4)
         Me.pnlhome.Controls.Add(Me.TextBox3)
         Me.pnlhome.Controls.Add(Me.TextBox2)
@@ -269,6 +268,7 @@ Partial Class Form3
         Me.pnlhome.Controls.Add(Me.btnadd)
         Me.pnlhome.Controls.Add(Me.btnstockview)
         Me.pnlhome.Controls.Add(Me.btnquickbill)
+        Me.pnlhome.Controls.Add(Me.pnlproduct)
         Me.pnlhome.Location = New System.Drawing.Point(229, 85)
         Me.pnlhome.Name = "pnlhome"
         Me.pnlhome.Size = New System.Drawing.Size(953, 664)

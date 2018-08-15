@@ -3,10 +3,15 @@ C:\Development\VS\SHOPPING\smartshopiee\smartshopiee\bin\Debug\smartshopiee.exe
 C:\Development\VS\SHOPPING\smartshopiee\smartshopiee\bin\Debug\smartshopiee.pdb
 C:\Development\VS\SHOPPING\smartshopiee\smartshopiee\bin\Debug\smartshopiee.xml
 C:\Development\VS\SHOPPING\smartshopiee\smartshopiee\obj\Debug\smartshopiee.vbprojAssemblyReference.cache
-C:\Development\VS\SHOPPING\smartshopiee\smartshopiee\obj\Debug\smartshopiee.FrmMain.resources
 C:\Development\VS\SHOPPING\smartshopiee\smartshopiee\obj\Debug\smartshopiee.Resources.resources
 C:\Development\VS\SHOPPING\smartshopiee\smartshopiee\obj\Debug\smartshopiee.vbproj.GenerateResource.cache
 C:\Development\VS\SHOPPING\smartshopiee\smartshopiee\obj\Debug\smartshopiee.vbproj.CoreCompileInputs.cache
 C:\Development\VS\SHOPPING\smartshopiee\smartshopiee\obj\Debug\smartshopiee.exe
 C:\Development\VS\SHOPPING\smartshopiee\smartshopiee\obj\Debug\smartshopiee.xml
 C:\Development\VS\SHOPPING\smartshopiee\smartshopiee\obj\Debug\smartshopiee.pdb
+C:\Development\VS\SHOPPING\smartshopiee\smartshopiee\obj\Debug\smartshopiee.base.resources
+C:\Development\VS\SHOPPING\smartshopiee\smartshopiee\obj\Debug\smartshopiee.biller.resources
+C:\Development\VS\SHOPPING\smartshopiee\smartshopiee\obj\Debug\smartshopiee.Form3.resources
+C:\Development\VS\SHOPPING\smartshopiee\smartshopiee\bin\Debug\Microsoft.VisualBasic.PowerPacks.dll
+C:\Development\VS\SHOPPING\smartshopiee\smartshopiee\bin\Debug\Microsoft.VisualBasic.PowerPacks.xml
+C:\Development\VS\SHOPPING\smartshopiee\smartshopiee\obj\Debug\smartshopiee.vbproj.CopyComplete

@@ -8,10 +8,10 @@ Public Class Form3
 
 
     Private Sub promngcloser()
-        productlister.Close()
-        additem.Close()
-        updateitem.Close()
-        delete.Close()
+        'productlister.Close()
+        'additem.Close()
+        'updateitem.Close()
+        'delete.Close()
 
     End Sub
 
@@ -35,7 +35,7 @@ Public Class Form3
     Private Sub btnsearch_Click(sender As Object, e As EventArgs) Handles btnsearch.Click
         pnlbutton.Height = btnsearch.Height
         pnlbutton.Top = btnsearch.Top
-        productlister.Show()
+        'productlister.Show()
         hmecloser()
         pnlproduct.Visible = False
 
@@ -46,7 +46,7 @@ Public Class Form3
         pnlbutton.Height = btnbill.Height
         pnlbutton.Top = btnbill.Top
         hmecloser()
-
+        biller.Show()
         promngcloser()
     End Sub
 
@@ -64,26 +64,26 @@ Public Class Form3
     End Sub
 
     Private Sub btnadd_Click(sender As Object, e As EventArgs) Handles btnadd.Click
-        additem.Show()
+        'additem.Show()
 
     End Sub
 
     Private Sub addbtn_Click(sender As Object, e As EventArgs) Handles addbtn.Click
-        additem.Show()
+        'additem.Show()
     End Sub
 
     Private Sub pricebtn_Click(sender As Object, e As EventArgs) Handles pricebtn.Click
-        updateitem.Show()
+        'updateitem.Show()
 
     End Sub
 
     Private Sub stockbtn_Click(sender As Object, e As EventArgs) Handles stockbtn.Click
-        updateitem.Show()
+        'updateitem.Show()
 
     End Sub
 
     Private Sub deletebtn_Click(sender As Object, e As EventArgs) Handles deletebtn.Click
-        delete.Show()
+        'delete.Show()
 
     End Sub
 
