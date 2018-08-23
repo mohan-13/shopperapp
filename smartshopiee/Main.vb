@@ -96,4 +96,9 @@ Public Class Form3
     Private Sub Label6_Click(sender As Object, e As EventArgs) Handles Label6.Click
 
     End Sub
+
+    Private Sub btnquickbill_Click(sender As Object, e As EventArgs) Handles btnquickbill.Click
+        biller.Show()
+
+    End Sub
 End Class

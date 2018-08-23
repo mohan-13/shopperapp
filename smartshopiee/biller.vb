@@ -35,8 +35,8 @@ Public Class biller
         SQL.ExecQuery(Query)
         If SQL.HasException(True) Then Exit Sub
         For Each r As DataRow In SQL.DBDT.Rows
-            id1 = r("ID")
-            pname = r("ProductName")
+            id1 = r("P_ID")
+            pname = r("P_NAME")
             catg = r("Category")
             up = r("Price")
             stock = r("Quantity")
@@ -87,7 +87,7 @@ Public Class biller
     Private Sub FindItem(na As String)
         SQL.AddParam("@item", "%" & na & "%")
 
-        LoadGrid("SELECT * FROM Products WHERE ProductName like @item;")
+        LoadGrid("SELECT * FROM Products WHERE P_NAME like @item;")
 
     End Sub
 
@@ -117,7 +117,7 @@ Public Class biller
         subtotal = 0
         cidtxt.Select()
         Timer1.Enabled = True
-        Me.WindowState = FormWindowState.Normal
+        Me.WindowState = FormWindowState.Maximized
 
         Form3.WindowState = FormWindowState.Minimized
 
@@ -149,12 +149,11 @@ Public Class biller
             Dim autotext As TextBox = TryCast(e.Control, TextBox)
             If autotext IsNot Nothing Then
                 autotext.AutoCompleteMode = AutoCompleteMode.Suggest
-
                 autotext.AutoCompleteSource = AutoCompleteSource.CustomSource
-                SQL.ExecQuery("SELECT * from Products ORDER BY ProductName ASC")
+                SQL.ExecQuery("SELECT * from Products ORDER BY P_NAME ASC")
                 If SQL.HasException(True) Then Exit Sub
                 For Each r In SQL.DBDT.Rows
-                    autotext.AutoCompleteCustomSource.Add(r("ProductName").ToString)
+                    autotext.AutoCompleteCustomSource.Add(r("P_NAME").ToString)
                 Next
 
             End If
@@ -192,26 +191,30 @@ Public Class biller
 
     Private Sub cidtxt_KeyDown(sender As Object, e As KeyEventArgs) Handles cidtxt.KeyDown
         If e.KeyCode = Keys.Enter Then
+            If Not String.IsNullOrWhiteSpace(cidtxt.Text) And cidtxt.TextLength = 10 Then
+                SQL.AddParam("@custid", cidtxt.Text)
+                SQL.ExecQuery("SELECT * from customer where c_id=@custid")
+                If SQL.HasException(True) Then Exit Sub
+                If SQL.DBDT.Rows.Count = 1 Then
+                    For Each r In SQL.DBDT.Rows
+                        caddress.Text = r("c_address")
+                        cnametxt.Text = r("c_name")
+                        dgviewbiller.Select()
 
 
-            SQL.AddParam("@custid", cidtxt.Text)
-            SQL.ExecQuery("SELECT * from customer where c_id=@custid")
-            If SQL.HasException(True) Then Exit Sub
-            If SQL.DBDT.Rows.Count = 1 Then
-                For Each r In SQL.DBDT.Rows
-                    caddress.Text = r("c_address")
-                    cnametxt.Text = r("c_name")
-                    dgviewbiller.Select()
+                    Next
+                ElseIf SQL.DBDT.Rows.Count = 0 Then
+                    cnametxt.ReadOnly = False
+                    caddress.ReadOnly = False
+                    SendKeys.Send("{TAB}")
 
-
-                Next
-            ElseIf SQL.DBDT.Rows.Count = 0 Then
-                cnametxt.ReadOnly = False
-                caddress.ReadOnly = False
-                SendKeys.Send("{TAB}")
-
+                End If
+            Else
+                MsgBox("Please Enter Valid Customer ID ", MsgBoxStyle.Information, "Invalid Customer ID")
             End If
+
         End If
+
     End Sub
 
     Private Sub cnametxt_KeyDown(sender As Object, e As KeyEventArgs) Handles cnametxt.KeyDown
@@ -226,20 +229,21 @@ Public Class biller
             SQL.AddParam("@custadd", caddress.Text.ToUpper)
             SQL.AddParam("@custid", cidtxt.Text)
             SQL.AddParam("@custname", cnametxt.Text.ToUpper)
-            SQL.ExecQuery("INSERT INTO CUSTOMER VALUES(@custid,@custname,@custadd,0,0);")
+            SQL.ExecQuery("INSERT INTO CUSTOMER VALUES(@custid,@custname,@custadd,0,0,0);")
 
             If SQL.HasException(True) Then Exit Sub
-            MsgBox("Customer Added..", MsgBoxStyle.OkOnly)
-            SendKeys.Send("{TAB}")
             cnametxt.Text = cnametxt.Text.ToUpper()
             caddress.Text = caddress.Text.ToUpper()
+            MsgBox("Customer Added..", MsgBoxStyle.OkOnly)
+            SendKeys.Send("{TAB}")
+
             cnametxt.ReadOnly = True
             caddress.ReadOnly = True
         End If
     End Sub
 
     Private Sub cnfrmbtn_Click(sender As Object, e As EventArgs) Handles prntbtn.Click
-        MsgBox("ARAVIND")
+        MsgBox("PRINTING NOT CONFIGURED")
     End Sub
 
     Private Sub TextBox6_TextChanged(sender As Object, e As EventArgs) Handles amtrcvtxt.TextChanged
@@ -247,4 +251,6 @@ Public Class biller
             amtchgtxt.Text = (amtrcvtxt.Text - grntotal).ToString
         End If
     End Sub
+
+
 End Class

@@ -1,6 +1,6 @@
 ﻿Imports System.Data.SqlClient
 Public Class SQLCONTROL
-    Public SQLcon As New SqlConnection("Server=MOHAN-PC\MOHANSQL;Database=MYDB1;Integrated Security=true")
+    Public SQLcon As New SqlConnection("Server=MOHAN-PC\MOHANSQL;Database=smartshop;Integrated Security=True")
     'Public Function Status() As Boolean
     'Try
     'SQLcon.Open()
