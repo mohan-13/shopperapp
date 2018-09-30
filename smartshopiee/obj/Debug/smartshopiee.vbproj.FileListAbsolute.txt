@@ -15,3 +15,6 @@ C:\Development\VS\SHOPPING\smartshopiee\smartshopiee\obj\Debug\smartshopiee.Form
 C:\Development\VS\SHOPPING\smartshopiee\smartshopiee\bin\Debug\Microsoft.VisualBasic.PowerPacks.dll
 C:\Development\VS\SHOPPING\smartshopiee\smartshopiee\bin\Debug\Microsoft.VisualBasic.PowerPacks.xml
 C:\Development\VS\SHOPPING\smartshopiee\smartshopiee\obj\Debug\smartshopiee.vbproj.CopyComplete
+C:\Development\VS\SHOPPING\smartshopiee\smartshopiee\bin\Debug\MySql.Data.dll
+C:\Development\VS\SHOPPING\smartshopiee\smartshopiee\bin\Debug\Google.Protobuf.dll
+C:\Development\VS\SHOPPING\smartshopiee\smartshopiee\bin\Debug\MySql.Data.xml

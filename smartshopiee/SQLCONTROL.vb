@@ -1,6 +1,9 @@
 ﻿Imports System.Data.SqlClient
+Imports MySql.Data.MySqlClient
 Public Class SQLCONTROL
-    Public SQLcon As New SqlConnection("Server=MOHAN-PC\MOHANSQL;Database=smartshop;Integrated Security=True")
+    Public mysqlcon As New MySqlConnection("server=db4free.net;Port=3306;user id=******;password=****** ;database=myshop;old guids=true")
+
+    'Public SQLcon As New SqlConnection("Server=MOHAN-PC\MOHANSQL;Database=smartshop;Integrated Security=True")
     'Public Function Status() As Boolean
     'Try
     'SQLcon.Open()
@@ -13,12 +16,12 @@ Public Class SQLCONTROL
     'End Try
     'Return False
     'End Function
-    Private DBcmd As SqlCommand
+    Private DBcmd As MySqlCommand
     'DB DATA
     Public DBDT As DataTable
-    Public DBAD As SqlDataAdapter
+    Public DBAD As MySqlDataAdapter
     'Query Params
-    Public Params As New List(Of SqlParameter)
+    Public Params As New List(Of MySqlParameter)
     'Query Statistics
     Public RecordCount As Integer
     Public Exception As String
@@ -32,10 +35,10 @@ Public Class SQLCONTROL
         RecordCount = 0
         Exception = ""
         Try
-            SQLcon.Open()
+            mysqlcon.Open()
 
             'DB Command
-            DBcmd = New SqlCommand(Query, SQLcon)
+            DBcmd = New MySqlCommand(Query, mysqlcon)
 
             'Load Params into SqlCommand
             Params.ForEach(Sub(p) DBcmd.Parameters.Add(p))
@@ -43,7 +46,7 @@ Public Class SQLCONTROL
             Params.Clear()
             'Execute Query and store
             DBDT = New DataTable
-            DBAD = New SqlDataAdapter(DBcmd)
+            DBAD = New MySqlDataAdapter(DBcmd)
             RecordCount = DBAD.Fill(DBDT)
 
 
@@ -55,15 +58,15 @@ Public Class SQLCONTROL
             MessageBox.Show(ex.Message)
             Exception = ex.Message
         Finally
-            If SQLcon.State = ConnectionState.Open Then
-                SQLcon.Close()
+            If mysqlcon.State = ConnectionState.Open Then
+                mysqlcon.Close()
             End If
 
         End Try
 
     End Sub
     Public Sub AddParam(Name As String, Value As Object)
-        Dim NewParam As New SqlParameter(Name, Value)
+        Dim NewParam As New MySqlParameter(Name, Value)
         Params.Add(NewParam)
     End Sub
     Public Function HasException(Optional Report As Boolean = False) As Boolean
